@@ -20,7 +20,7 @@ func LoadInterest() []models.Interest {
 	return data
 }
 
-func LoadInterestModels() []models.InterestMapping {
+func LoadInterestMapping() []models.InterestMapping {
 	bytes, _ := utils.ReadFile("../json/userInterestMappings.json")
 	var data []models.InterestMapping
 	utils.CheckError(json.Unmarshal([]byte(bytes), &data))

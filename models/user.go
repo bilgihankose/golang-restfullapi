@@ -5,6 +5,6 @@ type User struct {
 	Username  string `json:"Username"`
 	FirstName string `json:"FirstName"`
 	LastName  string `json:"LastName"`
-	Interest  []Interest
+	Interests  []Interest
 	Profile   string `json:"Profile"`
 }
