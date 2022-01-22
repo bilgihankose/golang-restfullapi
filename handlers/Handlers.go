@@ -11,7 +11,7 @@ import (
 
 func Run()  {
 	fmt.Println("Running server on :8080")
-	http.HandleFunc("", Handler)
+	http.HandleFunc("/", Handler)
 	utils.CheckError(http.ListenAndServe(":8080", nil))
 }
 
@@ -25,7 +25,7 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	interestMappings := dataloaders.LoadInterestMapping()
 	//islem
 
-	var newUsers []model.User
+	var newUsers []models.User
 
 	for _, user := range users {
 
@@ -44,5 +44,6 @@ func Handler(w http.ResponseWriter, r *http.Request) {
 	viewModel := models.UserViewModel{Page: page, Users: newUsers}
 	data, _ := json.Marshal(viewModel)
 	w.Write([]byte(data))
+
 
 }
